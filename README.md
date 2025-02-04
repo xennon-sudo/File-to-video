@@ -80,8 +80,8 @@ This project is licensed under the MIT License.
 
 1. Clone the repository:
    ```sh
-   git clone https://github.com/yourusername/your-repo.git
-   cd your-repo
+   git clone [This](https://github.com/xennon-sudo/File-to-video.git)
+   cd File-to-video
    ```
 
 2. Install the required Python packages:
@@ -91,25 +91,75 @@ This project is licensed under the MIT License.
 
 ## Usage 🚀
 
-### Encoding a File
+Certainly! Below is a guide on how to use the `app.py` script for encoding and decoding files using video frames.
 
-To encode a file, use the `encode` function in `app.py`:
+### Prerequisites
+Ensure you have the necessary modules and dependencies installed. You can install any missing dependencies using `pip`:
 
-```python
-from app import encode
-
-encode('path/to/your/file.txt')
+```sh
+pip install -r requirements.txt
 ```
 
-### Decoding a File
+### Usage
 
-To decode a file, use the `decode` function in `app.py`:
+#### Encoding a File
 
-```python
-from app import decode
+To encode a file, you need to specify the `encode` action and provide the path to the file you want to encode.
 
-decode()
+```sh
+python app.py encode --file path/to/your/file.txt
 ```
+
+- `encode`: Specifies that you want to encode a file.
+- `--file`: The path to the file you want to encode.
+
+#### Decoding a File
+
+To decode a file, you need to specify the `decode` action. The script will assume that the video frames are already extracted and stored in the appropriate directories.
+
+```sh
+python app.py decode
+```
+
+- `decode`: Specifies that you want to decode a file.
+
+### Example
+
+#### Encoding Example
+
+Suppose you have a file named `example.txt` located in the current directory. You can encode this file using the following command:
+
+```sh
+python app.py encode --file example.txt
+```
+
+#### Decoding Example
+
+To decode a previously encoded file, simply run:
+
+```sh
+python app.py decode
+```
+
+### Directory Structure
+
+Ensure that the script has the necessary directories to store intermediate files:
+
+- `./chunks`: Temporary directory to store file chunks during encoding.
+- `./images`: Temporary directory to store rendered frames during encoding.
+- `./extracted_frames`: Directory to store extracted frames during decoding.
+- `./recovered`: Directory to store recovered binary files during decoding.
+
+### Cleanup
+
+After encoding or decoding, the script will clean up the temporary directories (`./chunks`, `./images`, and `./extracted_frames`). Ensure that these directories are not needed for other purposes before running the script.
+
+### Notes
+
+- Make sure the video frames and extracted frames are correctly placed in the specified directories for decoding to work properly.
+- The script assumes that the necessary modules (`split_file`, `render_frame`, `create_video_from_images`, `extract_frames_from_video`, `recover_binary_files`, `merge_cunks`) are correctly implemented and available in the `modules` directory.
+
+By following these instructions, you should be able to encode and decode files using the `app.py` script effectively.
 
 ## File Structure 📁
 
