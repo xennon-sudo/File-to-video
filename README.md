@@ -80,7 +80,7 @@ This project is licensed under the MIT License.
 
 1. Clone the repository:
    ```sh
-   git clone [This](https://github.com/xennon-sudo/File-to-video.git)
+   git clone https://github.com/xennon-sudo/File-to-video.git
    cd File-to-video
    ```
 
